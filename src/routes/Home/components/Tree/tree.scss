@@ -1,0 +1,14 @@
+.node {
+}
+.node-child {
+    padding-left: 10px;
+}
+.node-item {
+    cursor: pointer;
+    &.active {
+        background: rgb(49, 54, 63);
+    }
+}
+.node-children {
+    padding-left: 20px;
+}
