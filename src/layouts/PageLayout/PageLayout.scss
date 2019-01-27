@@ -1,7 +1,21 @@
+.header {
+    height: 80px;
+    line-height: 80px;
+    display: flex;
+    border-bottom: 3px solid #31363f;
+}
+.link {
+    display: inline-flex;
+    width: 100px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    justify-content: center;
+}
 .page-layout__viewport {
 }
 
 .page-layout__nav-item--active {
-  font-weight: bold;
-  text-decoration: underline;
+    font-weight: bold;
+    background: #31363f;
 }

@@ -4,10 +4,19 @@ import PropTypes from 'prop-types'
 import './PageLayout.scss'
 
 export const PageLayout = ({ children }) => (
-  <div className='container'>
-    <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Org</IndexLink>
-    {' · '}
-    <Link to='/counter' activeClassName='page-layout__nav-item--active'>Boom</Link>
+  <div className='page'>
+    <div className="header">
+
+    <IndexLink
+      className='link'
+      to='/' activeClassName='page-layout__nav-item--active'
+    >
+      ORG
+    </IndexLink>
+    <Link
+      className='link'
+      to='/counter' activeClassName='page-layout__nav-item--active'>BOOM</Link>
+    </div>
     <div className='page-layout__viewport'>
       {children}
     </div>

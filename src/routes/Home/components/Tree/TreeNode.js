@@ -7,7 +7,6 @@ class TreeNode extends Component {
     this.renderChildren = this.renderChildren.bind(this);
   }
   renderChildren() {
-    debugger
     const { node, onToggle } = this.props;
     if (node.loading) {
       return (
@@ -39,7 +38,6 @@ class TreeNode extends Component {
     if (onToggle) onToggle(node);
 
   }
-
   renderSubContent() {
     let result = null;
     const { node : { isOpen }} = this.props;

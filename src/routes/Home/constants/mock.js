@@ -27,11 +27,36 @@ export default {
           sex: "male"
         }
       ],
-      group: []
+      group: [
+        {
+          name: "子部门A1",
+          user: [
+            {
+              name: 'xiaohong',
+              sex: "female"
+            },
+
+            {
+              name: 'xiaoming',
+              sex: "male"
+            }
+          ],
+          group: []
+        }
+      ]
     },
     {
       name: "子部门B",
-      user: [],
+      user: [
+        {
+          name: 'xiaohua',
+          sex: "male"
+        },
+        {
+          name: 'xiaofang',
+          sex: "male"
+        }
+      ],
       group: []
     }
   ]

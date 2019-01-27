@@ -18,7 +18,6 @@ class HomeView extends Component {
   onToggle(node) {
     const { curNode } = this.state;
     if (curNode) curNode.active = false;
-    debugger
     node.isOpen = !node.isOpen;
     node.active = true;
     this.setState({
@@ -27,6 +26,22 @@ class HomeView extends Component {
   }
 
   renderUserInfo() {
+    const curNode = this.state.curNode;
+    if (!curNode) return null;
+    debugger
+    const allUsers = [];
+
+    const getNode = (node) => {
+      if (node.isLeaf) {
+        allUsers.push(node);
+      }
+      if (node.children) {
+        node.children.forEach(child => getNode(child));
+      }
+    }
+    getNode(curNode);
+
+
     const loop = (node) => {
       return (
         <div>
@@ -37,14 +52,32 @@ class HomeView extends Component {
         </div>
       )
     }
-    const curNode = this.state.curNode;
-    if (!curNode) return null;
+
     return (
-      <div>
-        {loop(curNode)}
-      </div>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>性别</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            allUsers.map(user => (
+              <tr>
+                <td>{user.name}
+                </td>
+                <td>
+                  {user.sex}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     )
   }
+
   updateFilterData(value) {
     const { handleFilterChange } = this.props;
     handleFilterChange(value);
@@ -58,8 +91,8 @@ class HomeView extends Component {
     const { data, filter, handleFilterChange } = this.props;
     return (
       <div className="container">
-        <div className="menu">
-          <div>
+        <div className="m-menu">
+          <div className="m-input">
             <input
               onChange={this.onInputChange}
               name=""
@@ -68,7 +101,7 @@ class HomeView extends Component {
           </div>
           <Tree data={data} onToggle={this.onToggle}/>
         </div>
-        <div className="content">
+        <div className="m-content">
           {this.renderUserInfo()}
         </div>
       </div>
