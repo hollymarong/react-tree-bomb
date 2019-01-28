@@ -4,7 +4,7 @@ import './index.scss';
 
 import { connect } from 'react-redux'
 
-class Counter extends Component {
+class Bomb extends Component {
   init() {
     let rafTimer = null;
     let outTimer = null;
@@ -151,7 +151,7 @@ class Counter extends Component {
   }
 }
 
-Counter.propTypes = {
+Bomb.propTypes = {
 }
 
-export default Counter;
+export default Bomb;
